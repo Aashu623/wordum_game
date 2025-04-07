@@ -1,5 +1,7 @@
 import Link from "next/link";
 import "../styles/header.css";
+import { IoSettingsOutline } from "react-icons/io5";
+import { FaRegUserCircle } from "react-icons/fa";
 
 export default function Header() {
   return (
@@ -16,6 +18,12 @@ export default function Header() {
         <Link className="nav-link" href="/about">
           ABOUT
         </Link>
+      </nav>
+      <nav className="mobile-nav">
+        <FaRegUserCircle size={32} color="black" />
+        <div>
+          <IoSettingsOutline size={32} color="black" />
+        </div>
       </nav>
     </header>
   );
