@@ -4,6 +4,7 @@ import "../styles/level-selection.css";
 import { useState } from "react";
 import { FaRegUserCircle } from "react-icons/fa";
 import { IoSettingsOutline } from "react-icons/io5";
+import { IoIosArrowBack } from "react-icons/io";
 
 export default function LevelSelection() {
   const router = useRouter();
@@ -12,7 +13,14 @@ export default function LevelSelection() {
   return (
     <div className="popup-overlay">
       <nav className="mobile-nav">
-        <FaRegUserCircle size={32} color="black" />
+        <div className="left-icons">
+          <IoIosArrowBack
+            size={32}
+            style={{ cursor: "pointer", color: "#000" }}
+            onClick={() => router.push("/")}
+          />
+          <FaRegUserCircle size={32} color="black" />
+        </div>
         <div>
           <IoSettingsOutline size={32} color="black" />
         </div>

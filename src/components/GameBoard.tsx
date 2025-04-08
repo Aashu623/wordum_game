@@ -1,5 +1,5 @@
 "use client";
-import { FaLightbulb, FaVolumeUp, FaArrowLeft } from "react-icons/fa";
+import { FaLightbulb, FaVolumeUp } from "react-icons/fa";
 import { IoIosArrowBack } from "react-icons/io";
 import { FaArrowRotateLeft } from "react-icons/fa6";
 import { BsBrightnessHighFill } from "react-icons/bs";
@@ -22,20 +22,22 @@ export default function GameBoard() {
     if (!level) {
       router.push("/game");
     }
-  }, [level]);
+  }, [level, router]);
   return (
     <div className="gameboard-container">
       <div className="top-bar">
         <div className="left-icons">
           <IoIosArrowBack
             className="game-icon"
+            size={32}
             style={{ cursor: "pointer", color: "#000" }}
+            onClick={() => router.push("/game")}
           />
           <FaArrowRotateLeft
             className="game-icon"
             style={{ cursor: "pointer", color: "#000" }}
           />
-          <span className="level-button">EASY</span>
+          <span className="level-button">{level?.toUpperCase()}</span>
         </div>
         <div className="hints-container">
           <div className="icons-group">
@@ -46,34 +48,42 @@ export default function GameBoard() {
           <span className="attempts">3/3 attempts</span>
         </div>
         <div className="right-icons">
-          <FaVolumeUp style={{ cursor: "pointer", color: "#000" }} />
-          <BsBrightnessHighFill style={{ cursor: "pointer", color: "#000" }} />
+          <FaVolumeUp
+            className="game-icon"
+            style={{ cursor: "pointer", color: "#000" }}
+          />
+          <BsBrightnessHighFill
+            className="game-icon"
+            style={{ cursor: "pointer", color: "#000" }}
+          />
           <div className="coin">218</div>
         </div>
       </div>
 
-      {/*Circle Grid*/}
-      <div className="circle-grid">
-        {Array.from({ length: 4 }).map((_, rowIdx) => (
-          <div className="circle-row" key={rowIdx}>
-            {Array.from({ length: 5 }).map((_, colIdx) => (
-              <div className="circle" key={colIdx}></div>
-            ))}
-          </div>
-        ))}
-      </div>
+      <div className="gameboard">
+        {/*Circle Grid*/}
+        <div className="circle-grid">
+          {Array.from({ length: 4 }).map((_, rowIdx) => (
+            <div className="circle-row" key={rowIdx}>
+              {Array.from({ length: 5 }).map((_, colIdx) => (
+                <div className="circle" key={colIdx}></div>
+              ))}
+            </div>
+          ))}
+        </div>
 
-      {/* Keyboard */}
-      <div className="keyboard">
-        {Keyboard.map((row, rowIndex) => (
-          <div className="key-row" key={rowIndex}>
-            {row.map((char, index) => (
-              <button className="key" key={index}>
-                {char}
-              </button>
-            ))}
-          </div>
-        ))}
+        {/* Keyboard */}
+        <div className="keyboard">
+          {Keyboard.map((row, rowIndex) => (
+            <div className="key-row" key={rowIndex}>
+              {row.map((char, index) => (
+                <button className="key" key={index}>
+                  {char}
+                </button>
+              ))}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

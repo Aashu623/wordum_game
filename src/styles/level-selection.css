@@ -33,6 +33,10 @@
 .popup-title {
   color: black;
 }
+.left-icons {
+  display: flex;
+  gap: 10px;
+}
 .selected-level {
   background-color: rgb(73, 251, 73) !important;
 }

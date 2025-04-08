@@ -6,30 +6,31 @@
   flex-direction: column;
   min-height: 100vh;
   font-family: sans-serif;
-  padding: 0 1rem;
+  padding: 0;
 }
-
+.gameboard {
+  width: 100vw;
+}
 /* Top Bar */
 .top-bar {
+  position: relative;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  flex-wrap: wrap;
-  padding: 10px 2rem;
+  padding: 10px 20px;
   gap: 10px;
   font-size: 16px;
-  margin-bottom: 20px;
 }
 
 .left-icons {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 10px;
 }
 
 .game-icon {
-  font-size: 18px;
+  font-size: 14px;
   cursor: pointer;
 }
 
@@ -45,23 +46,28 @@
   display: flex;
   gap: 8px;
   color: #ffcc00;
-  font-size: 45px;
+  font-size: 32px;
 }
 
 .hints-container {
+  position: absolute;
+  width: fit-content;
+  top: 60px;
+  left: 35%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 4px;
+  gap: 10px;
 }
 
 .attempts {
   font-weight: bold;
   background-color: #004c66;
   color: white;
-  padding: 4px 10px;
+  width: fit-content;
+  padding: 3px 5px;
   border-radius: 5px;
-  font-size: 24px;
+  font-size: 16px;
 }
 
 .right-icons {
@@ -95,8 +101,8 @@
 }
 
 .circle {
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
   background-color: #003b4c;
   border-radius: 50%;
 }
@@ -120,8 +126,8 @@
 }
 
 .key {
-  height: 48px;
-  padding: 10px 16px;
+  height: 40px;
+  padding: 6px 4px;
   background-color: #004c66;
   color: white;
   border: none;
@@ -131,4 +137,37 @@
   cursor: pointer;
 }
 
+@media screen and (min-width: 768px) {
+  .circle {
+    width: 60px;
+    height: 60px;
+  }
+  .key {
+    height: 48px;
+    padding: 10px 16px;
+  }
+  .top-bar {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 30px 2rem;
+    gap: 10px;
+    font-size: 16px;
+  }
 
+  .game-icon {
+    font-size: 18px;
+  }
+  .left-icons {
+    gap: 20px;
+  }
+  .hints-container {
+    width: auto;
+    position: static;
+  }
+  .attempts {
+    font-size: 24px;
+    padding: 5px 11px;
+  }
+}
