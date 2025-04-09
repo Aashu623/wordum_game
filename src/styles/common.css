@@ -57,6 +57,12 @@
 .gamewon-subtitle {
   font-size: 20px;
 }
+.empty-div {
+  height: 40px;
+  width: 60%;
+  border-radius: 8px;
+  background-color: #003d66;
+}
 @media screen and (min-width: 768px) {
   .modal-box {
     width: 411px;

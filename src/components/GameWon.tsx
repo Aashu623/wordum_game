@@ -17,6 +17,7 @@ const GameWon = ({ onClose }: { onClose: () => void }) => {
               Coins earned
             </p>
           </div>
+          <div className="empty-div"></div>
           <div className="button-row">
             <Link href="/game" className="icons-link">
               <FaRedo className="icon" />
