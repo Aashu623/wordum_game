@@ -9,9 +9,9 @@ const GameOver = ({ onClose }: { onClose: () => void }) => {
       <div className="popup-content">
         <RxCross1 className="close-icon" onClick={onClose} />
         <div className="gameover-container">
-          <div className="modal-box">
-            <h2 className="modal-title">GAME OVER</h2>
-            <p className="modal-subtitle">You are out of attempts</p>
+          <div className="gameover-box">
+            <h2 className="gameover-title">GAME OVER</h2>
+            <p className="gameover-subtitle">You are out of attempts</p>
           </div>
           <div className="button-row">
             <Link href="/game" className="icons-link">

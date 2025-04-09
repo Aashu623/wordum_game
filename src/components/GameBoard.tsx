@@ -8,6 +8,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import Resume from "./Resume";
 import GameOver from "./GameOver";
+import GameWon from "./GameWon";
 
 export default function GameBoard() {
   const router = useRouter();
@@ -29,11 +30,7 @@ export default function GameBoard() {
   const [gameOver, setGameOver] = useState(false);
 
   //setting a timeOut to game over
-  useEffect(() => {
-    setTimeout(() => {
-      setGameOver(true);
-    }, 10000);
-  }, []);
+
   return (
     <div className="gameboard-container">
       <div className="top-bar">
@@ -99,6 +96,7 @@ export default function GameBoard() {
       </div>
       {showModal && <Resume onClose={() => setShowModal(false)} />}
       {gameOver && <GameOver onClose={() => setGameOver(false)} />}
+      {gameOver && <GameWon onClose={() => setGameOver(false)} />}
     </div>
   );
 }
