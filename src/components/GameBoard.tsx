@@ -5,7 +5,9 @@ import { FaArrowRotateLeft } from "react-icons/fa6";
 import { BsBrightnessHighFill } from "react-icons/bs";
 import "../styles/gameboard.css";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import Resume from "./Resume";
+import GameOver from "./GameOver";
 
 export default function GameBoard() {
   const router = useRouter();
@@ -23,6 +25,15 @@ export default function GameBoard() {
       router.push("/game");
     }
   }, [level, router]);
+  const [showModal, setShowModal] = useState(false);
+  const [gameOver, setGameOver] = useState(false);
+
+  //setting a timeOut to game over
+  useEffect(() => {
+    setTimeout(() => {
+      setGameOver(true);
+    }, 10000);
+  }, []);
   return (
     <div className="gameboard-container">
       <div className="top-bar">
@@ -36,6 +47,7 @@ export default function GameBoard() {
           <FaArrowRotateLeft
             className="game-icon"
             style={{ cursor: "pointer", color: "#000" }}
+            onClick={() => setShowModal(true)}
           />
           <span className="level-button">{level?.toUpperCase()}</span>
         </div>
@@ -85,6 +97,8 @@ export default function GameBoard() {
           ))}
         </div>
       </div>
+      {showModal && <Resume onClose={() => setShowModal(false)} />}
+      {gameOver && <GameOver onClose={() => setGameOver(false)} />}
     </div>
   );
 }
